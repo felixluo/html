@@ -1,0 +1,190 @@
+﻿<!DOCTYPE html>
+<html >
+<head>
+	<meta charset="utf-8">
+    <title>Tutorial: Hello Dojo!</title>
+	<style type="text/css">
+		@import "//ajax.googleapis.com/ajax/libs/dojo/1.8.3/dijit/themes/claro/claro.css";
+		@import "//ajax.googleapis.com/ajax/libs/dojo/1.8.3/dojox/layout/resources/FloatingPane.css";
+		@import "//ajax.googleapis.com/ajax/libs/dojo/1.8.3/dojox/layout/resources/ResizeHandle.css";
+		@import "//ajax.googleapis.com/ajax/libs/dojo/1.8.3/dijit/themes/claro/layout/ContentPane.css";
+		@import "//ajax.googleapis.com/ajax/libs/dojo/1.8.3/dijit/themes/claro/layout/TabContainer.css";
+		@import "css/demo.css";
+		@import "css/demo1.css";
+		@import "css/demo2.css";
+	</style>	
+	
+	<script src="//ajax.googleapis.com/ajax/libs/dojo/1.8.3/dojo/dojo.js" data-dojo-config="isDebug: true, async: true"></script>
+	<script src="js/require.js"></script>
+	
+	<!--[if IE]>
+		<style type="text/css">
+		.msgContent div.triangle {
+			left: -9px;
+		}
+		</style>
+	<![endif]-->
+
+	
+</head>
+<body class="claro">
+	<div id="loader"><div id="loaderInner"></div></div>
+	
+	
+	<div data-dojo-type="dijit/layout/TabContainer" style="width: 100%; height: 100%;">
+		<div data-dojo-type="dijit/layout/ContentPane" title="开始" data-dojo-props="selected:true">
+			
+		</div>
+		<div data-dojo-type="dijit/layout/ContentPane" title="张柏芝" data-dojo-props="closable:true">
+			<!--toolbar-->
+			<div id="toolbar1" data-dojo-type="dijit/Toolbar">
+				<div data-dojo-type="dijit/form/Button" id="toolbar1.video"
+					data-dojo-props="iconClass:'customToolIcon toolIconVideo', showLabel:false">视频
+					<script type="dojo/on" data-dojo-event="click" data-dojo-args="evt">
+						require(["dojo/parser","dijit/registry","dojo/date/locale",
+								"dojo/dom-construct","dojo/dom-attr","dojo/string"],
+								function(parser,registry,locale,construct,attr,string){
+									var date = new Date();
+									var fmt = "hh:mm";		
+									date = locale.format( date, {selector:"date", datePattern:fmt } );
+									var n = 1+Math.floor(Math.random()*39);
+									var bgcolor = "sendBgcolor";
+									var triangle = "triangle-send";
+									var avatar = "./img/avatar/"+n+".png";
+									var msg = (n%2) ? "I love you" : "what? Are you kidding me?";
+									
+									var template = "";
+									template +=	'<li class="msgListItem">';
+									template +=		'<div class="msgAvatar">';
+									template +=			'<img src="${avatar}"></img>';
+									template +=		'</div>';
+									template +=		'<div class="msgContent clearfix">';
+									template +=			'<div class="container-top"></div>';
+									template +=			'<div class="${triangle}">&nbsp</div>';	
+									template +=			'<div class="container-center ${bgcolor}">';
+									template +=				'<div class="title-box">';
+									template +=					'<span class="msgTime">${date}</span>';
+									template +=				'</div>';
+									template +=				'<div class="content-box clearfix">';
+									template +=					'<span class="msgChat">${msg}</span>';
+									template +=	  			'</div>';
+									template +=			'</div>';
+									template +=			'<div class="container-bottom"></div>';	
+									template +=		'</div>';
+									template +=	'</li>';
+									
+									var str = string.substitute(template, {
+										triangle: triangle,
+										bgcolor: bgcolor,
+										date: date,
+										avatar: avatar,
+										msg: msg
+									});
+									
+					
+									var item = construct.toDom(str);
+									parser.parse(item);
+									construct.place(item, "msgList");
+								});
+					</script>
+				</div>
+				<div data-dojo-type="dijit/form/Button" id="toolbar1.voice"
+					data-dojo-props="iconClass:'customToolIcon toolIconAudio', showLabel:false">音频
+					<script type="dojo/on" data-dojo-event="click" data-dojo-args="evt">
+						require(["dojo/parser","dijit/registry","dojo/date/locale",
+								"dojo/dom-construct","dojo/dom-attr","dojo/string"],
+								function(parser,registry,locale,construct,attr,string){
+									var date = new Date();
+									var fmt = "hh:mm";		
+									date = locale.format( date, {selector:"date", datePattern:fmt } );
+									var n = 1+Math.floor(Math.random()*39);
+									var bgcolor = "recvBgcolor";
+									var triangle = "triangle-recv";
+									var avatar = "./img/avatar/"+n+".png";
+									var msg = (n%2) ? "I love you" : "what? Are you kidding me?";
+									
+									var template = "";
+									template +=	'<li class="msgListItem">';
+									template +=		'<div class="msgAvatar">';
+									template +=			'<img src="${avatar}"></img>';
+									template +=		'</div>';
+									template +=		'<div class="msgContent clearfix">';
+									template +=			'<div class="container-top"></div>';
+									template +=			'<div class="${triangle}">&nbsp</div>';	
+									template +=			'<div class="container-center ${bgcolor}">';
+									template +=				'<div class="title-box">';
+									template +=					'<span class="msgTime">${date}</span>';
+									template +=				'</div>';
+									template +=				'<div class="content-box clearfix">';
+									template +=					'<span class="msgChat">${msg}</span>';
+									template +=	  			'</div>';
+									template +=			'</div>';
+									template +=			'<div class="container-bottom"></div>';	
+									template +=		'</div>';
+									template +=	'</li>';
+									
+									var str = string.substitute(template, {
+										triangle: triangle,
+										bgcolor: bgcolor,
+										date: date,
+										avatar: avatar,
+										msg: msg
+									});
+									
+									var item = construct.toDom(str);
+									parser.parse(item);
+									construct.place(item, "msgList");
+								});
+					</script>
+				</div>
+				<div data-dojo-type="dijit/form/Button" id="toolbar1.filetrans"
+					data-dojo-props="iconClass:'customToolIcon toolIconTrans', showLabel:false">文件传输</div>
+				<!-- The following adds a line between toolbar sections-->
+				<span data-dojo-type="dijit/ToolbarSeparator"></span>
+				<div data-dojo-type="dijit/form/Button" id="toolbar1.complaint"
+					data-dojo-props="iconClass:'customToolIcon toolIconComplaint', showLabel:false">投诉</div>
+			</div>
+			<!--msgContent-->
+			<div id="msgContent1" data-dojo-type="dijit/layout/ContentPane">
+				<div class="chatlist clearfix">
+					<ul class="listbox" id="msgList"></ul>
+				</div>
+			</div>
+			<!-- editor -->
+			<div data-dojo-type="dijit/layout/ContentPane">
+				
+			</div>
+		</div>
+		<div data-dojo-type="dijit/layout/ContentPane" title="陈冠希" data-dojo-props="closable:true">
+			<!--toolbar-->
+			<div id="toolbar2" data-dojo-type="dijit/Toolbar">
+				<div data-dojo-type="dijit/form/Button" id="toolbar2.video"
+					data-dojo-props="iconClass:'customToolIcon toolIconVideo', showLabel:false">视频</div>
+				<div data-dojo-type="dijit/form/Button" id="toolbar2.voice"
+					data-dojo-props="iconClass:'customToolIcon toolIconAudio', showLabel:false">音频</div>
+				<div data-dojo-type="dijit/form/Button" id="toolbar2.filetrans"
+					data-dojo-props="iconClass:'customToolIcon toolIconTrans', showLabel:false">文件传输</div>
+				<!-- The following adds a line between toolbar sections-->
+				<span data-dojo-type="dijit/ToolbarSeparator"></span>
+				<div data-dojo-type="dijit/form/Button" id="toolbar2.complaint"
+					data-dojo-props="iconClass:'customToolIcon toolIconComplaint', showLabel:false">投诉</div>
+			</div>
+			<!--msgContent-->
+			<div data-dojo-type="dijit/layout/ContentPane">
+				<div class="content" style="width:400px;">
+					<p class="triangle-right left auto">But it could be any element you want.</p>
+					<p class="triangle-right right auto">The entire appearance is created only with CSS.</p>
+				</div>
+				<div class="chat">
+				<div class="bubble me"><span class='tail'>&nbsp;</span>Hello there !  moretng happens.</div>
+				<div class="chat">
+				<div class="bubble me"><span class='tail'>&nbsp;</span>Hello there ! lo there !  moretng happenslo there !  moretng happenslo there !  moretng happenslo there !  moretng happenslo there !  moretng happenslo there !  moretng happens moretng happens.</div></div>
+				</div>
+			</div>
+			<div data-dojo-type="dijit/layout/ContentPane">
+				
+			</div>
+		</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,246 @@
+* {
+    outline: none !important;
+}
+
+
+html,body {
+    margin: 0;
+    padding: 0;
+    font-family: Lucida Sans,Lucida Grande,Arial !important;
+    font-size: 13px !important;
+    color: #333;
+	width: 100%;
+	height: 100%;
+	overflow:hidden;
+}
+
+#loader {
+	padding:0;
+	margin:0;
+	position:absolute; 
+	top:0; left:0; 
+	width:100%; height:100%;  
+	background:#efefef;
+	opacity: 0.98; 
+	z-index:999;
+	vertical-align:middle;
+}
+
+#loaderInner {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	width: 32px;
+	height: 32px;
+	margin-top: -16px;
+	margin-left: -16px;
+	background-image: url('../img/skin/loading.gif');
+	background-repeat: no-repeat;
+}
+
+.customToolIcon {
+	width: 24px;
+	height: 24px;
+}
+
+.toolIconVideo {
+	background: url("../img/skin/tool/video.png") no-repeat scroll 0px 0px transparent;
+}
+
+.toolIconAudio {
+	background: url("../img/skin/tool/voice.png") no-repeat scroll 0px 0px transparent;
+}
+
+.toolIconTrans {
+	background: url("../img/skin/tool/file.png") no-repeat scroll 0px 0px transparent;
+}
+
+.toolIconComplaint {
+	background: url("../img/skin/tool/complaint.png") no-repeat scroll 0px 0px transparent;
+}
+
+.msgListItem {
+	float: left;
+	width: 100%;
+	position: relative;
+	z-index: 3;
+	margin-top: 8px;
+	margin-bottom: 8px;
+}
+.clearfix {
+zoom: 1;
+}
+
+.clearfix::after {
+content: ".";
+display: block;
+height: 0;
+font-size: 0;
+clear: both;
+visibility: hidden;
+}
+
+.msgAvatar {
+position: absolute;
+top: 0;
+left: 0;
+width: 50px;
+height: 50px;
+}
+
+.msgAvatar img {
+background: none repeat scroll 0 0 #fff;
+border-radius: 5px 5px 5px 5px;
+box-shadow: 0 2px 3px #ccc;
+display: block;
+height: 50px;
+width: 50px;
+}
+
+li {
+text-align: -webkit-match-parent;
+}
+
+ol, ul {
+list-style: none;
+}
+
+.msgContent {
+margin-left: 70px;
+position: relative;
+display: inline-block;
+}
+
+.msgContent div.container-top {
+
+}
+
+.msgContent div.container-bottom {
+
+}
+
+.msgContent div.triangle-send {
+	position: absolute;
+    top: 17px;
+    left: -18px;
+    height: 18px;
+    width:18px;
+    overflow:hidden;
+}
+
+.msgContent div.triangle-send:before{
+    background: #F5FAFF;
+    box-shadow: 0 0 6px #B2B2B2;
+    content: "";
+    display: block;
+    position: absolute;
+    top: 4px;
+    left: 12px;
+    height: 12px;
+    width:  12px;
+	-o-transform: rotate(40deg);
+    -moz-transform: rotate(40deg);
+	-webkit-transform: rotate(40deg);
+	transform: rotate(40deg);	
+	/*for ie*/
+	filter: progid:DXImageTransform.Microsoft.Matrix(sizingMethod='auto expand', M11=0.7660444431189777, M12=-0.6427876096865394, M21=0.6427876096865398, M22=0.7660444431189779);
+}
+
+.msgContent div.triangle-recv {
+	position: absolute;
+    top: 17px;
+    left: -18px;
+    height: 18px;
+    width:18px;
+    overflow:hidden;
+}
+
+.msgContent div.triangle-recv:before{
+    background: #FBFBEE;
+    box-shadow: 0 0 6px #B2B2B2;
+    content: "";
+    display: block;
+    position: absolute;
+    top: 4px;
+    left: 12px;
+    height: 12px;
+    width:  12px;
+	-o-transform: rotate(40deg);
+    -moz-transform: rotate(40deg);
+	-webkit-transform: rotate(40deg);
+	transform: rotate(40deg);	
+	/*for ie*/
+	filter: progid:DXImageTransform.Microsoft.Matrix(sizingMethod='auto expand', M11=0.7660444431189777, M12=-0.6427876096865394, M21=0.6427876096865398, M22=0.7660444431189779);
+}
+
+.msgContent div.container-center {
+-webkit-border-radius: 10px;
+-moz-border-radius: 10px;
+border-radius: 10px;
+-webkit-box-shadow: 0px 0px 6px #B2B2B2;
+-moz-box-shadow: 0px 0px 6px #B2B2B2;
+box-shadow: 0px 0px 6px #B2B2B2;
+/*for ie*/
+-ms-filter:"progid:DXImageTransform.Microsoft.Shadow(color=#dddddd,direction=0,strength=3) progid:DXImageTransform.Microsoft.Shadow(color=#dddddd,direction=90,strength=3) progid:DXImageTransform.Microsoft.Shadow(color=#dddddd,direction=180,strength=3) progid:DXImageTransform.Microsoft.Shadow(color=#dddddd,direction=270,strength=3)";
+*filter: 
+progid:DXImageTransform.Microsoft.Shadow(color=#dddddd,direction=0,strength=3)
+progid:DXImageTransform.Microsoft.Shadow(color=#dddddd,direction=90,strength=3)
+progid:DXImageTransform.Microsoft.Shadow(color=#dddddd,direction=180,strength=3)
+progid:DXImageTransform.Microsoft.Shadow(color=#dddddd,direction=270,strength=3);
+}
+
+.msgContent div.container-center div.title-box {
+padding: 0 23px 5px 21px;
+border-bottom: #ededed 1px solid;
+position: relative;
+}
+
+.msgContent div.container-center div.title-box span.msgTime {
+font-family: SimSun;
+color: #aeaeae;
+line-height: 22px;
+margin: 0 0 0 2px;
+}
+
+.msgContent div.container-center div.content-box {
+padding: 16px 25px 10px 25px;
+margin: 0 auto 0 auto;
+overflow: hidden;
+}
+
+.msgContent div.container-center div.content-box span.msgChat {
+text-align: left;
+word-break: break-all;	
+}
+
+.chatlist{
+	overflow:hidden;
+}
+
+.sendBgcolor {
+/*	background:#e5f2fe;*/
+background: #e5f2fe;
+background: -webkit-gradient(linear, 0 0, 0 100%, from(#fff), to(#e5f2fe));
+background: -moz-linear-gradient(#fff, #e5f2fe);
+background: -o-linear-gradient(#fff, #e5f2fe);
+background: linear-gradient(#fff, #e5f2fe);
+/*for ie*/
+filter: 
+progid:DXImageTransform.Microsoft.Gradient(startColorStr='#ffffff',endColorStr='#e5f2fe',gradientType='0');
+}
+
+.recvBgcolor { 
+/*	background:#F5F5D5;*/
+background: #F5F5D5;
+background: -webkit-gradient(linear, 0 0, 0 100%, from(#fff), to(#F5F5D5));
+background: -moz-linear-gradient(#fff, #F5F5D5);
+background: -o-linear-gradient(#fff, #F5F5D5);
+background: linear-gradient(#fff, #F5F5D5);
+/*for ie*/
+filter: 
+progid:DXImageTransform.Microsoft.Gradient(startColorStr='#ffffff',endColorStr='#F5F5D5',gradientType='0');
+}
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legend, input, button, textarea, p, blockquote, th, td {
+margin: 0;
+padding: 0;
+}
